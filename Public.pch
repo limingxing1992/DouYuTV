@@ -1,0 +1,77 @@
+//
+//  Public.pch
+//  DouYuTV
+//
+//  Created by qianfeng on 15/12/4.
+//  Copyright © 2015年 李明星. All rights reserved.
+//
+
+#ifndef Public_pch
+#define Public_pch
+
+#import "URL.h"
+#import "TVModel.h"
+#import "ScorllModel.h"
+#import "ShowModel.h"
+#import "MainModel.h"
+#import "ColumnModel.h"
+#import "ListModel.h"
+#import "Networking.h"
+
+
+#import "UserViewController.h"
+#import "LiveViewController.h"
+#import "ColumnViewController.h"
+#import "MainViewController.h"
+#import "BaseViewController.h"
+#import "BaseNavigationViewController.h"
+#import "MoreViewController.h"
+
+#import <UIImageView+WebCache.h>
+#import <MJRefresh/MJRefresh.h>
+#import "SDCycleScrollView.h"
+
+//相对iphone6 屏幕比
+#define KWidth_Scale    [UIScreen mainScreen].bounds.size.width/375.0f
+
+#define TabBar_T_Color RGB(244, 89, 27)
+
+//RGB
+#define RGBA(r, g, b, a)    [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
+#define RGB(r, g, b)     RGBA(r, g, b, 1.0f)
+
+
+//调试bug
+#ifndef __OPTIMIZE__
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+#define NSLog(...){}
+#endif
+
+//获取屏幕物理尺寸
+#define SCREEN_WIDTH ([UIScreen mainScreen].bounds.size.width)
+#define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
+
+//获取系统版本
+#define IOS_VERSION [[[UIDevice currentDevice] systemVersion] floatValue]
+#define CurrentSystemVersion [[UIDevice currentDevice] systemVersion]
+
+//直接读取图片
+#define LOADIOACLIMAGE(name) [[UIImage imageNamed:name] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]
+
+
+//读取本地图片
+#define LOADIMAGE(file,ext) [UIImage imageWithContentsOfFile:[[NSBundle mainBundle]pathForResource:file ofType:ext]]
+
+//方正黑体简体字体定义
+#define FONT(F) [UIFont fontWithName:@"FZHTJW--GB1-0" size:F]
+
+//GCD全局线程和主线程获取
+#define BACK(block) dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), block)
+#define MAIN(block) dispatch_async(dispatch_get_main_queue(),block)
+
+//NSUserDefaults 实例化
+#define USER_DEFAULT [NSUserDefaults standardUserDefaults]
+
+
+#endif /* Public_pch */
